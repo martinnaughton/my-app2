@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'martin'
+                echo 'testing'
             }
         }
         stage('Deploy') {
