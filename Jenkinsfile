@@ -23,17 +23,6 @@ pipeline {
                 sh 'ls -l'
             }
         }
-        stage('Docker') {
-            agent {
-              docker {
-                 image 'docker:latest'
-              }
-            }
-            steps {
-                sh 'docker build -t in-jenkins-image .'
-                sh 'ls -l'
-            }
-        }
         stage('Deploy') {
     agent {
        docker {
@@ -42,6 +31,17 @@ pipeline {
     }
             steps {
                 sh 'mvn install'
+                sh 'ls -l'
+            }
+        }
+        stage('Docker') {
+            agent {
+              docker {
+                 image 'docker:latest'
+              }
+            }
+            steps {
+                sh 'docker build -t in-jenkins-image .'
                 sh 'ls -l'
             }
         }
