@@ -26,7 +26,7 @@ pipeline {
     }
     post {
           success {
-             archiveArtifact(artifacts: '**/target/*.jar', allowEmptyArchive: true)   
+             archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)   
            }
           failure {
              echo 'Build FAiled'
