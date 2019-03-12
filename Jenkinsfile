@@ -1,17 +1,28 @@
 pipeline {
+    agent none 
+    stages {
     agent {
        docker {
          image 'maven:3-alpine'
        }
     }
-    stages {
         stage('Complile') {
+    agent {
+       docker {
+         image 'maven:3-alpine'
+       }
+    }
             steps {
                 sh 'mvn clean compile'
                 sh 'ls -l'
             }
         }
         stage('Test') {
+    agent {
+       docker {
+         image 'maven:3-alpine'
+       }
+    }
             steps {
                 sh 'mvn package'
                 sh 'ls -l'
@@ -29,6 +40,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+    agent {
+       docker {
+         image 'maven:3-alpine'
+       }
+    }
             steps {
                 sh 'mvn install'
                 sh 'ls -l'
