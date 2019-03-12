@@ -7,12 +7,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'mvn clean install'
+                sh 'ls -l'
             }
         }
         stage('Test') {
             steps {
-                echo 'testing'
+                sh 'ls -l'
             }
         }
         stage('Deploy') {
