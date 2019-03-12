@@ -17,6 +17,12 @@ pipeline {
                 sh 'ls -l'
             }
         }
+        stage('Docker') {
+            steps {
+                sh 'docker build -t inJenkins .'
+                sh 'ls -l'
+            }
+        }
         stage('Deploy') {
             steps {
                 sh 'mvn install'
