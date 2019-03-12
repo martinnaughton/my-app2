@@ -5,20 +5,21 @@ pipeline {
        }
     }
     stages {
-        stage('Build') {
+        stage('Complile') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean compile'
                 sh 'ls -l'
             }
         }
         stage('Test') {
             steps {
+                sh 'mvn package'
                 sh 'ls -l'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'mvn install'
             }
         }
     }
