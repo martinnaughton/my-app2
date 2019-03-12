@@ -18,6 +18,11 @@ pipeline {
             }
         }
         stage('Docker') {
+            agent {
+              docker {
+                 image 'docker:latest'
+              }
+            }
             steps {
                 sh 'docker build -t inJenkins .'
                 sh 'ls -l'
