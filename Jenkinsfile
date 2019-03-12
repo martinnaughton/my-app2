@@ -30,7 +30,7 @@ pipeline {
               }
             }
             steps {
-                sh 'docker build -t inJenkins .'
+                sh 'docker build -t in-jenkins-image .'
                 sh 'ls -l'
             }
         }
